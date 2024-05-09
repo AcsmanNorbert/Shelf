@@ -26,34 +26,32 @@ public class CardsData
 
 public class Deck : MonoBehaviour
 {
-    [SerializeField] WeaponShooting weapon;
-    [SerializeField] AmmoType[] fullDeck;
-    List<AmmoType> currentDeck;
-
-    int ammoInMagazine;
-    int magazineSize;
-    public int MagazineAmmo => ammoInMagazine;
-
-    private void Awake()
-    {
-        magazineSize = weapon.GetMagazineSize;
-        ammoInMagazine = magazineSize;
-    }
-
-    private void Start()
-    {
-        ReshuffleDeck();
-    }
+    [SerializeField] LoadoutManager loadout;
+    List<AmmoType> currentDeck = new();
+    List<AmmoType> fullDeck = new();
 
     public Action<List<AmmoType>, CardsData> OnAmmoChange;
+
+    public void LoadFullDeck()
+    {
+        currentDeck = new();
+        foreach (GameObject obj in loadout.GetLoadoutGuns)
+        {
+            Gun gun = obj.GetComponent<Gun>();
+            AmmoType[] pack = gun.GetAmmoPack;
+            fullDeck.AddRange(pack);
+        }
+        ReshuffleDeck();
+        LoadMagazine(DrawHand(loadout.GetCurrentGun.GetMagazineSize));
+    }
 
     CardsData CardsData
     {
         get 
         {
             CardsData data = new();
-            data.magazineSize = magazineSize;
-            data.ammoCount = ammoInMagazine;
+            data.magazineSize = loadout.GetCurrentGun.GetMagazineSize;
+            data.ammoCount = loadout.GetCurrentGun.GetAmmoInMagazine;
             data.deckSize = fullDeck.Count();
             data.cardCount = currentDeck.Count();
             return data;
@@ -62,15 +60,15 @@ public class Deck : MonoBehaviour
 
     public void ReshuffleDeck()
     {
-        int deckSize = fullDeck.Length;
+        int deckSize = fullDeck.Count;
         currentDeck = new(deckSize);
         List<AmmoType> shuffle = fullDeck.ToList();
 
         for (int i = 0; i < deckSize; i++)
         {
             int random = Random.Range(0, deckSize - i);
-            AmmoType randomShell = shuffle[random];
-            currentDeck.Add(randomShell);
+            AmmoType randomAmmo = shuffle[random];
+            currentDeck.Add(randomAmmo);
             shuffle.RemoveAt(random);
         }
         OnAmmoChange?.Invoke(currentDeck, CardsData);
@@ -84,7 +82,6 @@ public class Deck : MonoBehaviour
             ammo = currentDeck[0];
             currentDeck.RemoveAt(0);
         }
-        ammoInMagazine--;
         OnAmmoChange?.Invoke(currentDeck, CardsData);
         return ammo;
     }
@@ -102,7 +99,7 @@ public class Deck : MonoBehaviour
         return newHand;
     }
 
-    public void EmptyMagazine()
+    public void EmptyMagazine(int ammoInMagazine)
     {
         int count = Mathf.Clamp(ammoInMagazine, 0, currentDeck.Count);
         if (ammoInMagazine != 0)
@@ -111,9 +108,5 @@ public class Deck : MonoBehaviour
         OnAmmoChange?.Invoke(currentDeck, CardsData);
     }
 
-    public void LoadMagazine(List<AmmoType> ammo)
-    {
-        ammoInMagazine = weapon.GetMagazineSize;
-        OnAmmoChange?.Invoke(currentDeck, CardsData);
-    }
+    public void LoadMagazine(List<AmmoType> ammo) => OnAmmoChange?.Invoke(currentDeck, CardsData); 
 }
