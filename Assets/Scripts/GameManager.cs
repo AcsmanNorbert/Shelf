@@ -4,11 +4,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager i;
 
-    private void Start()
+    private void Start() 
     {
         if (i == null)
-            i = Instantiate(this);
+            i = this;
+
+        loadoutManager = playerRef.GetComponent<LoadoutManager>();
     }
 
     public GameObject playerRef;
+    public LoadoutManager loadoutManager;
 }

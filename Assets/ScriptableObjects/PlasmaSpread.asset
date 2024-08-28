@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef80f62dfb91a0c4d9060d73a928ab28, type: 3}
+  m_Name: PlasmaSpread
+  m_EditorClassIdentifier: 
+  bonus:
+  - type: 6
+    upgradeName: 
+    description: 
+    amount: -0.05
+  - type: 4
+    upgradeName: 
+    description: 
+    amount: -0.05
+  upgradeName: Plasma Battery
+  description: Sustained fire with this weapon grants it reduced recoil and bullet
+    spread. (-5%, -75% at 15 stacks)
+  maxStacks: 15
+  duration: 0.3
+  doStacksDecay: 1
+  decayModifier: 0.2

@@ -14,42 +14,42 @@ public class MagazineUI : MonoBehaviour
     {
         InstCards();
         GameObject playerRef = GameManager.i.playerRef;
-        Deck magazine = playerRef.GetComponent<Deck>();
+        DeckManager magazine = playerRef.GetComponent<DeckManager>();
         magazine.OnAmmoChange += RefreshAmmoUI;
     }
 
-    [SerializeField] TMP_Text magazineText; 
+    [SerializeField] TMP_Text magazineText;
     [SerializeField] TMP_Text deckText;
     public void RefreshAmmoUI(List<AmmoType> currentDeck, CardsData cardsData)
     {
         magazineText.text = $"{cardsData.ammoCount}/{cardsData.magazineSize}";
-        deckText.text = $"{cardsData.cardCount}/{cardsData.deckSize}";
+        deckText.text = $"{cardsData.cardCount}";
         for (int i = 0; i < cards.Count; i++)
         {
-            Image image = cards[i].GetComponent<Image>();
-            if (currentDeck.Count > i)
-                image.sprite = ammoTypeImages.GetSprite(currentDeck[i]);
-            else
-                image.sprite = ammoTypeImages.GetSprite(AmmoType.Blank);
+            Image image = cards[i].GetComponentInChildren<Image>();
+            if (currentDeck.Count > i) image.sprite = ammoTypeImages.GetSprite(currentDeck[i]);
+            else image.sprite = ammoTypeImages.GetSprite(AmmoType.Blank);
 
-            if (cardsData.ammoCount > i)
-                image.color = Color.white;
-            else
-                image.color = Color.gray;
+            float greyScale = (8f - i) / 5f;
+            greyScale = Mathf.Clamp(greyScale, 0.2f, 1);
+            Color greyColor = new(greyScale, greyScale, greyScale);
+            if (cardsData.ammoCount > i) image.color = greyColor;
+            else image.color = new(0.2f, 0.2f, 0.2f);
         }
     }
 
-    const float offset = 22;
+    [SerializeField] int displayLenght = 15;
     public void InstCards()
     {
-        Vector3 offsetVector = new(offset, 0, 0.1f);
-        const int displayLenght = 15;
+        float rotationOffset = 360 / displayLenght;
+        Vector3 rotOffsetVector = new(0, 0, rotationOffset);
         for (int i = 0; i < displayLenght; i++)
-        { 
+        {
+            int count = i + 1;
+            Vector3 offsetRotation = rotOffsetVector * count;
             GameObject newCard = Instantiate(cardPrefab, container.transform.position, Quaternion.identity, container.transform);
-            Vector3 offsetPosition = offsetVector * (displayLenght - i - 1);
-            newCard.GetComponent<RectTransform>().anchoredPosition = offsetPosition;
             newCard.SetActive(true);
+            newCard.GetComponent<RectTransform>().localEulerAngles = offsetRotation;
             cards.Add(newCard);
         }
         cards.Reverse();

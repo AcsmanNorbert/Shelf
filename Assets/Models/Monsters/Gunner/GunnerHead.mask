@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GunnerHead
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: AlienArmature
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/L_arm_IKPole
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/L_arm_IKPole/L_arm_IKPole_end
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/L_shoulder
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/L_shoulder/L_arm_IK
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/L_shoulder/L_arm_IK/L_arm_IK_end
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/L_shoulder/L_armUpper
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/L_shoulder/L_armUpper/L_armLower
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/L_shoulder/L_armUpper/L_armLower/L_armHand
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/L_shoulder/L_armUpper/L_armLower/L_armHand/L_armHand_end
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/Neck
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/Neck/Head
+    m_Weight: 1
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/Neck/Head/L_headLid
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/Neck/Head/L_headLid/L_headLid_end
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/Neck/Head/R_headLid
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/Neck/Head/R_headLid/R_headLid_end
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/R_arm_IKPole
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/R_arm_IKPole/R_arm_IKPole_end
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/R_shoulder
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/R_shoulder/R_arm_IK
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/R_shoulder/R_arm_IK/R_arm_IK_end
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/R_shoulder/R_armUpper
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/R_shoulder/R_armUpper/R_armLower
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/R_shoulder/R_armUpper/R_armLower/R_armHand
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/BodyUpper/R_shoulder/R_armUpper/R_armLower/R_armHand/R_armHand_end
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/L_legUpper
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/L_legUpper/L_legMiddle
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/L_legUpper/L_legMiddle/L_legLower
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/L_legUpper/L_legMiddle/L_legLower/L_legFeet
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/L_legUpper/L_legMiddle/L_legLower/L_legFeet/L_legFeet_end
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/R_legUpper
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/R_legUpper/R_legMiddle
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/R_legUpper/R_legMiddle/R_legLower
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/R_legUpper/R_legMiddle/R_legLower/R_legFeet
+    m_Weight: 0
+  - m_Path: AlienArmature/BodyRoot/R_legUpper/R_legMiddle/R_legLower/R_legFeet/R_legFeet_end
+    m_Weight: 0
+  - m_Path: AlienArmature/L_leg_IK
+    m_Weight: 0
+  - m_Path: AlienArmature/L_leg_IK/L_leg_IK_end
+    m_Weight: 0
+  - m_Path: AlienArmature/L_leg_IKPole
+    m_Weight: 0
+  - m_Path: AlienArmature/L_leg_IKPole/L_leg_IKPole_end
+    m_Weight: 0
+  - m_Path: AlienArmature/R_leg_IK
+    m_Weight: 0
+  - m_Path: AlienArmature/R_leg_IK/R_leg_IK_end
+    m_Weight: 0
+  - m_Path: AlienArmature/R_leg_IKPole
+    m_Weight: 0
+  - m_Path: AlienArmature/R_leg_IKPole/R_leg_IKPole_end
+    m_Weight: 0
+  - m_Path: Cube
+    m_Weight: 0
